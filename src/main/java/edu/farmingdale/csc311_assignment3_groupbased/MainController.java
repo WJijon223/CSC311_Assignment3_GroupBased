@@ -3,18 +3,17 @@ package edu.farmingdale.csc311_assignment3_groupbased;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 
 public class MainController {
 
     @FXML
-    private RadioButton carButton;
+    private Button carButton;
 
     @FXML
     private Button resetButton;
 
     @FXML
-    private RadioButton robotButton;
+    private Button robotButton;
 
     @FXML
     private Button solveButton;

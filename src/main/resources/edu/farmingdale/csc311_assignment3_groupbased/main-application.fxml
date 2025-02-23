@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -48,12 +47,12 @@
             <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetMaze" text="Reset" />
             <Button fx:id="solveButton" mnemonicParsing="false" onAction="#solveMaze" text="Solve" />
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <RadioButton fx:id="carButton" mnemonicParsing="false" onAction="#setCar" text="Car">
+            <Button fx:id="carButton" mnemonicParsing="false" onAction="#setCar" text="Car">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
-            </RadioButton>
-            <RadioButton fx:id="robotButton" mnemonicParsing="false" onAction="#setRobot" text="Robot" />
+            </Button>
+            <Button fx:id="robotButton" mnemonicParsing="false" onAction="#setRobot" text="Robot" />
          </children>
       </HBox>
    </children>
