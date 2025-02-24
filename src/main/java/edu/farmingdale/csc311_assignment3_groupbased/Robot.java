@@ -49,17 +49,17 @@ public class Robot {
     }
 
     void moveRight(){
-        if(canMove(x - STEP_SIZE, y)) {
+        if(canMove(x + STEP_SIZE, y)) {
             x += STEP_SIZE;
             robotImage.setX(x);
         }
     }
-//temporary
+
     private boolean canMove(int x, int y){
-        return true;
+        return true; // replace true with classname.canMove(x,y) temporary till collision detection is implemented
     }
 
-    Image getRobotImage(){
-        return robotImage.getImage();
+    ImageView getRobotImage(){
+        return robotImage;
     }
 }
