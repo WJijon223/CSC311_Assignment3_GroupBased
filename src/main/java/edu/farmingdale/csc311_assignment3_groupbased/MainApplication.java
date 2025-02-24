@@ -12,6 +12,13 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-application.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+
+        // Get controller instance
+        MainController controller = fxmlLoader.getController();
+
+        // Attach key listener for robot movement
+        scene.setOnKeyPressed(controller::handleKeyPress);
+
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
