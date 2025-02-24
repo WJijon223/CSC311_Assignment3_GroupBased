@@ -3,16 +3,26 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.csc311_assignment3_groupbased.MainController">
+<VBox alignment="CENTER" prefHeight="532.0" prefWidth="700.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.csc311_assignment3_groupbased.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
 
     <Label fx:id="welcomeText" />
-   <Pane fx:id="animationPane" prefHeight="200.0" prefWidth="200.0" />
+   <Pane fx:id="animationPane" prefHeight="221.0" prefWidth="660.0">
+      <children>
+         <ImageView fitHeight="397.0" fitWidth="559.0" layoutX="64.0" layoutY="-150.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/maze.png" />
+            </image>
+         </ImageView>
+      </children></Pane>
     <Button fx:id="startAnimationButton" onAction="#onHelloButtonClick" text="startAnimationButton" />
+   <Button fx:id="resetButton" mnemonicParsing="false" onAction="#onResetButtonClick" text="resetButton" />
 </VBox>

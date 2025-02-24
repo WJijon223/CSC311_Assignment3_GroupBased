@@ -26,6 +26,9 @@ public class MainController {
     @FXML
     private Label welcomeText;
 
+    @FXML
+    private Button resetButton;
+
     private ImageView robot;
     private final int STEP_SIZE = 10; // Movement per key press
     private Image mazeImage; // Image for collision detection
@@ -35,12 +38,12 @@ public class MainController {
     public void initialize() {
         // Load the robot image inside the Pane
         robot = new ImageView(new Image(getClass().getResource("/images/robot.png").toExternalForm()));
-        robot.setFitWidth(50);
-        robot.setFitHeight(50);
+        robot.setFitWidth(45);
+        robot.setFitHeight(45);
 
         // Set correct starting position (Adjust as needed)
         robot.setX(50);  // Move to correct starting X
-        robot.setY(50);  // Move to correct starting Y (Was too low before)
+        robot.setY(65);  // Move to correct starting Y (Was too low before)
 
         animationPane.getChildren().add(robot); // Add robot to pane
 
@@ -55,6 +58,13 @@ public class MainController {
     @FXML
     void onHelloButtonClick(ActionEvent event) {
         welcomeText.setText("Welcome to JavaFX Application!");
+    }
+
+
+    @FXML
+    void onResetButtonClick(ActionEvent event) {
+        robot.setX(50); // Reset robot position
+        robot.setY(65); // Reset robot position
     }
 
     // Handles robot movement when arrow keys are pressed
@@ -95,17 +105,17 @@ public class MainController {
             Timeline timeline = new Timeline();
 
             // Movement sequence based on your instructions
-            KeyFrame step1 = new KeyFrame(Duration.seconds(1), e -> moveIfValid(50, 0));  // 1 step right
+            KeyFrame step1 = new KeyFrame(Duration.seconds(1), e -> moveIfValid(43, 0));  // 1 step right
             KeyFrame step2 = new KeyFrame(Duration.seconds(2), e -> moveIfValid(0, -50)); // 1 step up
             KeyFrame step3 = new KeyFrame(Duration.seconds(3), e -> moveIfValid(0, -50)); // 2nd step up
-            KeyFrame step4 = new KeyFrame(Duration.seconds(4), e -> moveIfValid(50, 0));  // 1st step right
-            KeyFrame step5 = new KeyFrame(Duration.seconds(5), e -> moveIfValid(50, 0));  // 2nd step right
-            KeyFrame step6 = new KeyFrame(Duration.seconds(6), e -> moveIfValid(50, 0));  // 3rd step right
+            KeyFrame step4 = new KeyFrame(Duration.seconds(4), e -> moveIfValid(68, 0));  // 1st step right
+            KeyFrame step5 = new KeyFrame(Duration.seconds(5), e -> moveIfValid(68, 0));  // 2nd step right
+            KeyFrame step6 = new KeyFrame(Duration.seconds(6), e -> moveIfValid(68, 0));  // 3rd step right
             KeyFrame step7 = new KeyFrame(Duration.seconds(7), e -> moveIfValid(0, -50)); // 1 step up
             KeyFrame step8 = new KeyFrame(Duration.seconds(8), e -> moveIfValid(50, 0));  // 1 step right
-            KeyFrame step9 = new KeyFrame(Duration.seconds(9), e -> moveIfValid(0, 50));  // 1st step down
-            KeyFrame step10 = new KeyFrame(Duration.seconds(10), e -> moveIfValid(0, 50)); // 2nd step down
-            KeyFrame step11 = new KeyFrame(Duration.seconds(11), e -> moveIfValid(0, 50)); // 3rd step down
+            KeyFrame step9 = new KeyFrame(Duration.seconds(9), e -> moveIfValid(0, 70));  // 1st step down
+            KeyFrame step10 = new KeyFrame(Duration.seconds(10), e -> moveIfValid(0, 70)); // 2nd step down
+            KeyFrame step11 = new KeyFrame(Duration.seconds(11), e -> moveIfValid(0, 70)); // 3rd step down
             KeyFrame step12 = new KeyFrame(Duration.seconds(12), e -> moveIfValid(50, 0)); // 1 step right
             KeyFrame step13 = new KeyFrame(Duration.seconds(13), e -> moveIfValid(0, -50)); // 1st step up
             KeyFrame step14 = new KeyFrame(Duration.seconds(14), e -> moveIfValid(0, -50)); // 2nd step up
@@ -113,10 +123,10 @@ public class MainController {
             KeyFrame step16 = new KeyFrame(Duration.seconds(16), e -> moveIfValid(50, 0)); // 1 more step right
             KeyFrame step17 = new KeyFrame(Duration.seconds(17), e -> moveIfValid(0, -50)); // 1st step up
             KeyFrame step18 = new KeyFrame(Duration.seconds(18), e -> moveIfValid(0, -50)); // 2nd step up
-            KeyFrame step19 = new KeyFrame(Duration.seconds(19), e -> moveIfValid(50, 0)); // 1 step right
-            KeyFrame step20 = new KeyFrame(Duration.seconds(20), e -> moveIfValid(0, 50)); // 1st step down
-            KeyFrame step21 = new KeyFrame(Duration.seconds(21), e -> moveIfValid(0, 50)); // 2nd step down
-            KeyFrame step22 = new KeyFrame(Duration.seconds(22), e -> moveIfValid(0, 50)); // 3rd step down
+            KeyFrame step19 = new KeyFrame(Duration.seconds(19), e -> moveIfValid(55, 0)); // 1 step right
+            KeyFrame step20 = new KeyFrame(Duration.seconds(20), e -> moveIfValid(0, 45)); // 1st step down
+            KeyFrame step21 = new KeyFrame(Duration.seconds(21), e -> moveIfValid(0, 45)); // 2nd step down
+            KeyFrame step22 = new KeyFrame(Duration.seconds(22), e -> moveIfValid(0, 45)); // 3rd step down
             KeyFrame step23 = new KeyFrame(Duration.seconds(23), e -> moveIfValid(50, 0)); // 1st additional step right
             KeyFrame step24 = new KeyFrame(Duration.seconds(24), e -> moveIfValid(50, 0)); // 2nd additional step right
 
@@ -126,8 +136,9 @@ public class MainController {
                     step11, step12, step13, step14, step15, step16, step17, step18, step19,
                     step20, step21, step22, step23, step24
             );
-
             timeline.play();
+            robot.setX(50); // Reset robot position
+            robot.setY(65); // Reset robot position
         }
 
 
