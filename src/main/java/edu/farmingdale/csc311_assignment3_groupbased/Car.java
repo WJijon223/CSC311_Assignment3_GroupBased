@@ -1,9 +1,9 @@
-package game;
+package edu.farmingdale.csc311_assignment3_groupbased;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Car {
+public class Car implements Movable {
     private double x, y;
     private final double width, height;
     private final double speed;
@@ -19,27 +19,20 @@ public class Car {
     public void draw(GraphicsContext gc) {
         gc.setFill(Color.RED);
         gc.fillRect(x, y, width, height);
-
         gc.setFill(Color.BLACK);
         gc.fillRect(x + 5, y + height, 10, 10);
         gc.fillRect(x + width - 15, y + height, 10, 10);
     }
 
-
+    @Override
     public void moveLeft() { x -= speed; }
+    @Override
     public void moveRight() { x += speed; }
-    public void moveUp() { y -= speed; }
-    public void moveDown() { y += speed; }
-
+    @Override
+    public void moveForward() { y -= speed; }
+    @Override
+    public void moveBack() { y += speed; }
 
     public double getX() { return x; }
     public double getY() { return y; }
-
-
-    public void stopAtBoundary(double minX, double maxX, double minY, double maxY) {
-        if (x < minX) x = minX;
-        if (x + width > maxX) x = maxX - width;
-        if (y < minY) y = minY;
-        if (y + height > maxY) y = maxY - height;
-    }
 }
