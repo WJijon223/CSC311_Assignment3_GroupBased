@@ -168,4 +168,7 @@ public class MainController {
         // Return true if the pixel is not a wall
         return !pixelColor.equals(WALL_COLOR);
     }
+
+    public void onResetCarButtonClick(ActionEvent actionEvent) {
+    }
 }

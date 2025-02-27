@@ -3,23 +3,25 @@ package edu.farmingdale.csc311_assignment3_groupbased;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-application.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 532);
+        TabPane root = fxmlLoader.load();
 
-        // Get controller instance
-        MainController controller = fxmlLoader.getController();
+        // Get main controller
+        MainController mainController = fxmlLoader.getController();
 
-        // Attach key listener for robot movement
-        scene.setOnKeyPressed(controller::handleKeyPress);
+        Scene scene = new Scene(root, 700, 532);
 
-        stage.setTitle("Hello!");cl
+        // Attach key listener for both robot and car
+        scene.setOnKeyPressed(event -> mainController.handleKeyPress(event));
+
+        stage.setTitle("Maze Navigation");
         stage.setScene(scene);
         stage.show();
     }
