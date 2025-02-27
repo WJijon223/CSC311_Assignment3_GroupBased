@@ -136,9 +136,15 @@ public class MainController {
                     step11, step12, step13, step14, step15, step16, step17, step18, step19,
                     step20, step21, step22, step23, step24
             );
+            startAnimationButton.setDisable(true); // Disable button during animation
+            resetButton.setDisable(true); // Disable reset button during animation
             timeline.play();
             robot.setX(50); // Reset robot position
             robot.setY(65); // Reset robot position
+            timeline.setOnFinished(e -> {
+                startAnimationButton.setDisable(false); // Enable button after animation
+                resetButton.setDisable(false); // Enable reset button after animation
+            });
         }
 
 
