@@ -19,7 +19,7 @@ public class MainApplication extends Application {
         // Attach key listener for robot movement
         scene.setOnKeyPressed(controller::handleKeyPress);
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Hello!");cl
         stage.setScene(scene);
         stage.show();
     }
